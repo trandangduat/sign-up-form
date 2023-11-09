@@ -1,7 +1,196 @@
 @import url('reset.css');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@300;500;600;700&family=Roboto:wght@100;300;900&display=swap');
 
+:root {
+    --night: #0B0B0Aff;
+    --smoky-black: rgb(19, 15, 13);
+    --night-2: #0F100Fff;
+    --harvest-gold: #E19F03ff;
+    --dark-moss-green: rgb(108, 124, 13);
+    --gray: #131513;
+    --white: #877b59;
+}
+
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Roboto', sans-serif;
+    background: var(--night-2);
+    color: var(--white);
+    display: flex;
+    height: 100vh;
+}
+
+a:link {
+    color: var(--harvest-gold);
+}
+
+a:visited {
+    color: var(--dark-moss-green);
+}
+
+h1, h2, h3, h4, h5, h6, legend, label, button, p {
+    font-family: 'Red Hat Mono', monospace;
+}
+
+legend {
+    margin-bottom: 10px;
+}
+
+label {
+    text-transform: uppercase;
+    color: var(--white);
+    margin: 10px 5px;
+    font-size: 14px;
+}
+
+form {
+    --silly-border-radius: 10px;
+    --silly-padding: 12px;
+    --box-shadow-transparent: 
+        0 0 16px 3px transparent,  /* inner */
+        0 0 100px 4px transparent; /* outer */
+    --box-shadow-active:
+        0 0 16px 3px var(--harvest-gold),  /* inner */
+        0 0 100px 4px var(--harvest-gold); /* outer */
+}
+
+form * {
+    transition: 200ms;
+    outline: 0;
+}
+
+input {
+    font-family: 'Red Hat Mono', monospace;
+    background: var(--night);
+    border: 3px solid var(--night-2);
+    color: var(--harvest-gold);
+    border-radius: var(--silly-border-radius);
+    padding: var(--silly-padding);
+    box-shadow: var(--box-shadow-transparent);
+    font-size: 15px;
+}
+
+::placeholder {
+    font-weight: 100;
+    font-style: italic;
+    color: var(--white);
+    opacity: .15; /* Firefox */
+}
+
+::-ms-input-placeholder {
+    font-weight: 100;
+    font-style: italic;
+    color: var(--white);
+    opacity: .15; /* Firefox */    
+}
+
+input:focus {
+    border-color: var(--harvest-gold);
+    box-shadow: var(--box-shadow-active);
+}
+
+button {
+    background: var(--gray);
+    color: var(--night);
+    border-radius: var(--silly-border-radius);
+    padding: var(--silly-padding);
+    box-shadow: var(--box-shadow-transparent);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+button.active {
+    background: var(--harvest-gold);
+    box-shadow: var(--box-shadow-active);
+    color: var(--smoky-black);
+}
+
+body > div {
+    flex: 1;
+}
+
+/* Left section */
+
+#left-section {
+    height: 100%;
+    background: url("Resources/bg.jpg");
+    background-size: cover;
+}
+
+#left-section p {
+    color: var(--dark-moss-green);
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+    margin: 15px;
+}
+
+#left-section p > b {
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+/* Right section */
+
+#right-section {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 100px;
+}
+
+#right-section > div {
+    flex: 1;
+}
+
+#right-section fieldset {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 10px;
+}
+
+#right-section fieldset > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#right-section fieldset > div > * {
+    flex: 1;
+}
+
+#right-section button {
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#right-section #main {
+    flex: 2;
+}
+
+#right-section #header {
+    display: flex;
+}
+
+#right-section #header * {
+    font-size: 2.5rem;
+    color: rgb(239, 177, 33);
+    text-shadow: 
+        0 0 26px var(--harvest-gold),
+        0 0 30px var(--harvest-gold),
+        0 0 50px var(--harvest-gold),
+        0 0 100px var(--harvest-gold);
+    margin: auto;
+}
+
+#right-section form > p {
+    font-style: italic;
+    margin-top: 30px;
 }

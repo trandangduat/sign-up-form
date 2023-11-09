@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
     <link rel = "stylesheet" href = "style.css">
+    <script src = "script.js" defer></script>
 </head>
 <body>
     <div id = "left-section">
@@ -12,46 +13,47 @@
     </div>
     <div id = "right-section">
         <div id = "header">
-            <h3>This is only the beginning...</h3>
+            <h1>This is only the beginning...</h1>
         </div>
         <div id = "main">
             <form action = "#" method = "post">
-                <legend>Let's do this!</legend>
+                <!-- <legend>Let's do this!</legend> -->
                 <!-- Name section -->
                 <fieldset>
                     <div>
                         <label for = "first-name">First name</label>
-                        <input type = "text" id = "first-name" name = "first-name">
+                        <input type = "text" id = "first-name" name = "first-name" placeholder="Silly" required>
                     </div>
                     <div>
                         <label for = "last-name">Last name</label>
-                        <input type = "text" id = "last-name" name = "last-name">
+                        <input type = "text" id = "last-name" name = "last-name" placeholder="Cutie" required>
                     </div>
                 </fieldset>
                 <!-- Contact info section -->
                 <fieldset>
                     <div>
                         <label for = "email">Email</label>
-                        <input type = "email" id = "email" name = "email">
+                        <input type = "email" id = "email" name = "email" placeholder="abc1234@xyz.com" required>
                     </div>
                     <div>
                         <label for = "Phone number">Phone number</label>
-                        <input type = "number" id = "phone-number" name = "phone-number">
+                        <input type = "number" id = "phone-number" name = "phone-number" placeholder="0123456789" required>
                     </div>
                 </fieldset>
                 <!-- Password section -->
                 <fieldset>
                     <div>
                         <label for = "password">Password</label>
-                        <input type = "password" id = "password" name = "password">
+                        <input type = "password" id = "password" name = "password" required>
                     </div>
                     <div>
                         <label for = "password-confirm">Confirm password</label>
-                        <input type = "password" id = "password-confirm" name = "password-confirm">
+                        <input type = "password" id = "password-confirm" name = "password-confirm" required>
                     </div>
                 </fieldset>
                 <!-- Sign up button -->
-                <button type = "button">Create account</button>
+                <button type = "submit">Create account</button>
+                <p>Already have an account? <a href = "#">Log in</a></p>
             </form>
         </div>       
     </div>
