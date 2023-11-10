@@ -5,7 +5,8 @@
     --night: #0B0B0Aff;
     --smoky-black: rgb(19, 15, 13);
     --night-2: #0F100Fff;
-    --harvest-gold: #E19F03ff;
+    /* --harvest-gold: #E19F03ff; */
+    --harvest-gold: #ff9200;
     --dark-moss-green: rgb(108, 124, 13);
     --gray: #131513;
     --white: #877b59;
@@ -21,6 +22,7 @@ body {
     color: var(--white);
     display: flex;
     height: 100vh;
+    overflow: hidden;
 }
 
 a:link {
@@ -42,13 +44,18 @@ legend {
 label {
     text-transform: uppercase;
     color: var(--white);
-    margin: 10px 5px;
-    font-size: 14px;
+    margin: 5px 5px;
+    font-size: .85rem;
+    letter-spacing: 4px;
+}
+
+label.filled {
+    color: var(--harvest-gold);
 }
 
 form {
     --silly-border-radius: 10px;
-    --silly-padding: 12px;
+    --silly-padding: 13px 15px;
     --box-shadow-transparent: 
         0 0 16px 3px transparent,  /* inner */
         0 0 100px 4px transparent; /* outer */
@@ -66,7 +73,7 @@ input {
     font-family: 'Red Hat Mono', monospace;
     background: var(--night);
     border: 3px solid var(--night-2);
-    color: var(--harvest-gold);
+    color: var(--white);
     border-radius: var(--silly-border-radius);
     padding: var(--silly-padding);
     box-shadow: var(--box-shadow-transparent);
@@ -77,7 +84,7 @@ input {
     font-weight: 100;
     font-style: italic;
     color: var(--white);
-    opacity: .15; /* Firefox */
+    opacity: .3; /* Firefox */
 }
 
 ::-ms-input-placeholder {
@@ -90,6 +97,7 @@ input {
 input:focus {
     border-color: var(--harvest-gold);
     box-shadow: var(--box-shadow-active);
+    color: var(--harvest-gold);
 }
 
 button {
@@ -104,10 +112,13 @@ button {
     font-weight: 800;
 }
 
-button.active {
-    background: var(--harvest-gold);
+button.active:hover {
     box-shadow: var(--box-shadow-active);
-    color: var(--smoky-black);
+}
+
+button.active {
+    background: linear-gradient(to right, var(--harvest-gold), rgb(255, 179, 0));
+    color: var(--gray);
 }
 
 body > div {
@@ -120,6 +131,7 @@ body > div {
     height: 100%;
     background: url("Resources/bg.jpg");
     background-size: cover;
+    background-position: center;
 }
 
 #left-section p {
@@ -128,18 +140,19 @@ body > div {
     bottom: 0;
     font-size: 12px;
     margin: 15px;
+    color: var(--white);
+    opacity: .5;
 }
 
 #left-section p > b {
     font-weight: 800;
     text-transform: uppercase;
-    color: var(--white);
 }
 
 /* Right section */
 
 #right-section {
-    flex: 1.2;
+    flex: 1.1;
     display: flex;
     flex-direction: column;
     padding: 0px 100px;
@@ -151,8 +164,8 @@ body > div {
 
 #right-section fieldset {
     display: flex;
-    gap: 60px;
-    margin-bottom: 10px;
+    gap: 40px;
+    margin-bottom: 20px;
 }
 
 #right-section fieldset > div {
@@ -180,7 +193,7 @@ body > div {
 }
 
 #right-section #header * {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     color: rgb(239, 177, 33);
     text-shadow: 
         0 0 26px var(--harvest-gold),
@@ -188,6 +201,21 @@ body > div {
         0 0 50px var(--harvest-gold),
         0 0 100px var(--harvest-gold);
     margin: auto;
+}
+
+@keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+
+#right-section #header h1::after {
+    content: '|';
+    animation-delay: 10s;
+    animation: flickerAnimation 500ms 4s infinite;
+    font-size: 2.8rem;
+    margin-left: -15px;
+    font-weight: 100;
 }
 
 #right-section form > p {

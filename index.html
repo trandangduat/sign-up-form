@@ -6,6 +6,7 @@
     <title>Sign up</title>
     <link rel = "stylesheet" href = "style.css">
     <script src = "script.js" defer></script>
+    <script src="https://kit.fontawesome.com/78a65ac865.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
     <div id = "left-section">
@@ -36,7 +37,7 @@
                         <input type = "email" id = "email" name = "email" placeholder="abc1234@xyz.com" required>
                     </div>
                     <div>
-                        <label for = "Phone number">Phone number</label>
+                        <label for = "phone-number">Phone number</label>
                         <input type = "number" id = "phone-number" name = "phone-number" placeholder="0123456789" required>
                     </div>
                 </fieldset>
@@ -52,8 +53,8 @@
                     </div>
                 </fieldset>
                 <!-- Sign up button -->
-                <button type = "submit">Create account</button>
-                <p>Already have an account? <a href = "#">Log in</a></p>
+                <button type = "submit" id = "submit">Create account</button>
+                <p style = "display: none;">Already have an account? <a href = "#">Log in</a></p>
             </form>
         </div>       
     </div>
