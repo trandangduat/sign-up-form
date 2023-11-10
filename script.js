@@ -1,6 +1,7 @@
 let header = document.querySelector("#right-section > #header");
 let headerTextContainer = document.querySelector("#right-section > #header > h1");
 let submitButton = document.getElementById("submit");
+let confirmPasswordStatus = document.querySelector("label[for='password-confirm'] i");
 
 function typingEffect (textContainer) {
     let text = textContainer.innerHTML;
@@ -24,27 +25,43 @@ function confirmPassword() {
 function validate() {
     document.querySelectorAll("input").forEach((e) => {
         e.addEventListener("blur", () => {
-            if (e.value != '') {
-                // let inputName = e.getAttribute("name");
-                // let inputLabel = document.querySelector(`label[for=${inputName}]`);
-                // inputLabel.setAttribute("class", "filled");
-            }
             let allInput = document.querySelectorAll("input");
             let countFilledInputs = 0;
             for (let i = 0; i < allInput.length; i++) {
                 countFilledInputs += (allInput[i].value != '');
             }
+            confirmPasswordStatus.className = (confirmPassword() ? "fa-solid fa-check good" : "fa-solid fa-xmark");
             if (countFilledInputs == allInput.length) {
-                if (confirmPassword()) {
-                    submitButton.setAttribute("class", "active");
-                } else {
-                    console.log("password not match");
-                }
+                submitButton.setAttribute("class", "active");
+                submitButton.style.zIndex = "1";
             }
         });
     });
 }
 
-typingEffect(headerTextContainer);
-validate();
+// Show a tooltip with password rules when hovering on
+// the small 'i' icon next to the Password label
+function tooltipPasswordRules() {
+    let tooltipIndicator = document.querySelector("label[for='password'] > i");
+    let tooltipContainer = document.createElement('p');
+    tooltipContainer.setAttribute("id", "tooltip");
+    tooltipContainer.innerHTML = "Password must at least:<br> - Have 8 characters<br> - Have 1 digit and 1 letter";
+    document.body.appendChild(tooltipContainer);
+    tooltipIndicator.addEventListener("mouseover", () => {
+        tooltipContainer.style.display = 'block';
+        document.addEventListener('mousemove', (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+            tooltipContainer.style.left = x + 'px';
+            tooltipContainer.style.top = (y + 20) + 'px';
+        });
+    });
+    tooltipIndicator.addEventListener("mouseout", () => {
+        tooltipContainer.style.display = 'none';
+    });
+}
 
+//
+typingEffect(headerTextContainer);
+tooltipPasswordRules();
+validate();

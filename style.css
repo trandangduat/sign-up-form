@@ -9,7 +9,7 @@
     --harvest-gold: #ff9200;
     --dark-moss-green: rgb(108, 124, 13);
     --gray: #131513;
-    --white: #877b59;
+    --white: #b1a47f;
 }
 
 * {
@@ -59,9 +59,12 @@ form {
     --box-shadow-transparent: 
         0 0 16px 3px transparent,  /* inner */
         0 0 100px 4px transparent; /* outer */
+    --box-shadow-mid: 
+        0 0 16px 3px transparent,  /* inner */
+        0 0 200px 4px var(--harvest-gold); /* outer */
     --box-shadow-active:
         0 0 16px 3px var(--harvest-gold),  /* inner */
-        0 0 100px 4px var(--harvest-gold); /* outer */
+        0 0 150px 4px var(--harvest-gold); /* outer */
 }
 
 form * {
@@ -119,10 +122,15 @@ button.active:hover {
 button.active {
     background: linear-gradient(to right, var(--harvest-gold), rgb(255, 179, 0));
     color: var(--gray);
+    box-shadow: var(--box-shadow-mid);
 }
 
 body > div {
     flex: 1;
+}
+
+i.good {
+    color: var(--harvest-gold);
 }
 
 /* Left section */
@@ -181,7 +189,7 @@ body > div {
 #right-section button {
     margin-top: 20px;
     position: relative;
-    z-index: 1;
+    z-index: -1;
 }
 
 #right-section #main {
@@ -221,4 +229,22 @@ body > div {
 #right-section form > p {
     font-style: italic;
     margin-top: 30px;
+}
+
+
+#tooltip {
+    position: absolute;
+    line-height: 20px;
+    background: var(--night-2);
+    padding: 10px;
+    font-size: .9rem;
+    border-radius: 10px;
+    display: none;
+    box-shadow: 5px 5px 50px var(--night);
+    z-index: 1;
+}
+
+#particleCanvas {
+    z-index: -2;
+    position: absolute;
 }

@@ -6,9 +6,11 @@
     <title>Sign up</title>
     <link rel = "stylesheet" href = "style.css">
     <script src = "script.js" defer></script>
+    <script src = "particle.js" defer></script>
     <script src="https://kit.fontawesome.com/78a65ac865.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
+    <canvas id="particleCanvas"></canvas>
     <div id = "left-section">
         <p id = "credit">Photo by <b>Alex Shuper</b> on <b>Unsplash</b></p>
     </div>
@@ -44,11 +46,11 @@
                 <!-- Password section -->
                 <fieldset>
                     <div>
-                        <label for = "password">Password</label>
-                        <input type = "password" id = "password" name = "password" required>
+                        <label for = "password">Password <i class="fa-solid fa-circle-info"></i></label>
+                        <input type = "password" id = "password" name = "password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
                     </div>
                     <div>
-                        <label for = "password-confirm">Confirm password</label>
+                        <label for = "password-confirm">Confirm password <i class="fa-solid fa-xmark"></i></label>
                         <input type = "password" id = "password-confirm" name = "password-confirm" required>
                     </div>
                 </fieldset>
