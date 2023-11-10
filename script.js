@@ -19,6 +19,7 @@ function typingEffect (textContainer) {
 
 function confirmPassword() {
     let passwords = document.querySelectorAll("input[type='password']");
+    if (passwords[0].value == '' || passwords[1].value == '') return false;
     return (passwords[0].value == passwords[1].value);
 }
 

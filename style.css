@@ -44,7 +44,7 @@ legend {
 label {
     text-transform: uppercase;
     color: var(--white);
-    margin: 5px 5px;
+    margin: 7px 5px;
     font-size: .85rem;
     letter-spacing: 4px;
 }
@@ -140,6 +140,8 @@ i.good {
     background: url("Resources/bg.jpg");
     background-size: cover;
     background-position: center;
+    position: relative;
+    z-index: -999;
 }
 
 #left-section p {
